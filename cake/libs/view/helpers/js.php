@@ -571,7 +571,7 @@ class JsBaseEngineHelper extends AppHelper {
 	}
 
 /**
- * Generates a JavaScript object in JavaScript Object Notation (JSON)
+ * Generates a JavaScript object in JavaScript ObjectCake13 Notation (JSON)
  * from an array.  Will use native JSON encode method if available, and $useNative == true
  *
  * ### Options:

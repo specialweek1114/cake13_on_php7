@@ -23,7 +23,7 @@ App::import('Core', array('CakeSocket', 'Set', 'Router'));
  * Cake network socket connection class.
  *
  * Core base class for HTTP network communication. HttpSocket can be used as an
- * Object Oriented replacement for cURL in many places.
+ * ObjectCake13 Oriented replacement for cURL in many places.
  *
  * @package       cake
  * @subpackage    cake.cake.libs
@@ -31,7 +31,7 @@ App::import('Core', array('CakeSocket', 'Set', 'Router'));
 class HttpSocket extends CakeSocket {
 
 /**
- * Object description
+ * ObjectCake13 description
  *
  * @var string
  * @access public
@@ -146,12 +146,12 @@ class HttpSocket extends CakeSocket {
  * You can use a url string to set the url and use default configurations for
  * all other options:
  *
- * `$http =& new HttpSocket('http://cakephp.org/');`
+ * `$http = new HttpSocket('http://cakephp.org/');`
  *
  * Or use an array to configure multiple options:
  *
  * {{{
- * $http =& new HttpSocket(array(
+ * $http = new HttpSocket(array(
  *    'host' => 'cakephp.org',
  *    'timeout' => 20
  * ));

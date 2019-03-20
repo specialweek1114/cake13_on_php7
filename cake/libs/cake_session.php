@@ -35,7 +35,7 @@ if (!class_exists('Security')) {
  * @package       cake
  * @subpackage    cake.cake.libs
  */
-class CakeSession extends Object {
+class CakeSession extends ObjectCake13 {
 
 /**
  * True if the Session is still valid

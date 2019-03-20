@@ -1,6 +1,6 @@
 <?php
 /**
- * Object class, allowing __construct and __destruct in PHP4.
+ * ObjectCake13 class, allowing __construct and __destruct in PHP4.
  *
  * Also includes methods for logging and the special method RequestAction,
  * to call other Controllers' Actions from anywhere.
@@ -22,7 +22,7 @@
  */
 
 /**
- * Object class, allowing __construct and __destruct in PHP4.
+ * ObjectCake13 class, allowing __construct and __destruct in PHP4.
  *
  * Also includes methods for logging and the special method RequestAction,
  * to call other Controllers' Actions from anywhere.
@@ -30,7 +30,7 @@
  * @package cake
  * @subpackage cake.cake.libs
  */
-class Object {
+class ObjectCake13 {
 
 /**
  * A hack to support __construct() on PHP 4
@@ -125,7 +125,7 @@ class Object {
 	}
 
 /**
- * Stop execution of the current script.  Wraps exit() making 
+ * Stop execution of the current script.  Wraps exit() making
  * testing easier.
  *
  * @param $status see http://php.net/exit for values
@@ -156,7 +156,7 @@ class Object {
 	}
 
 /**
- * Allows setting of multiple properties of the object in a single line of code.  Will only set 
+ * Allows setting of multiple properties of the object in a single line of code.  Will only set
  * properties that are part of a class declaration.
  *
  * @param array $properties An associative array containing properties and corresponding values.

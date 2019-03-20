@@ -984,7 +984,7 @@ class Set {
 
 /**
  * Converts an object into an array.
- * @param object $object Object to reverse
+ * @param object $object ObjectCake13 to reverse
  * @return array Array representation of given object
  * @public
  * @static

@@ -131,7 +131,7 @@ class ModelTask extends BakeTask {
 		if (!$table) {
 			$table = Inflector::tableize($className);
 		}
-		$object =& new Model(array('name' => $className, 'table' => $table, 'ds' => $this->connection));
+		$object = new Model(array('name' => $className, 'table' => $table, 'ds' => $this->connection));
 		return $object;
 	}
 
