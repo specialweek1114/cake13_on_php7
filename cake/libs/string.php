@@ -185,7 +185,7 @@ class StringCake13 {
 /**
  * Replaces variable placeholders inside a $str with any given $data. Each key in the $data array
  * corresponds to a variable placeholder name in $str.
- * Example: `String::insert(':name is :age years old.', array('name' => 'Bob', '65'));`
+ * Example: `StringCake13::insert(':name is :age years old.', array('name' => 'Bob', '65'));`
  * Returns: Bob is 65 years old.
  *
  * Available $options are:
@@ -195,7 +195,7 @@ class StringCake13 {
  * - escape: The character or string used to escape the before character / string (Defaults to `\`)
  * - format: A regex to use for matching variable placeholders. Default is: `/(?<!\\)\:%s/`
  *   (Overwrites before, after, breaks escape / clean)
- * - clean: A boolean or array with instructions for String::cleanInsert
+ * - clean: A boolean or array with instructions for StringCake13::cleanInsert
  *
  * @param string $str A string containing variable placeholders
  * @param string $data A key => val array where each key stands for a placeholder variable name
@@ -213,7 +213,7 @@ class StringCake13 {
 		$format = $options['format'];
 		$data = (array)$data;
 		if (empty($data)) {
-			return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+			return ($options['clean']) ? StringCake13::cleanInsert($str, $options) : $str;
 		}
 
 		if (!isset($format)) {
@@ -232,7 +232,7 @@ class StringCake13 {
 				$offset = $pos + strlen($val);
 				$str = substr_replace($str, $val, $pos, 1);
 			}
-			return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+			return ($options['clean']) ? StringCake13::cleanInsert($str, $options) : $str;
 		} else {
 			asort($data);
 
@@ -257,21 +257,21 @@ class StringCake13 {
 		if (!isset($options['format']) && isset($options['before'])) {
 			$str = str_replace($options['escape'].$options['before'], $options['before'], $str);
 		}
-		return ($options['clean']) ? String::cleanInsert($str, $options) : $str;
+		return ($options['clean']) ? StringCake13::cleanInsert($str, $options) : $str;
 	}
 
 /**
- * Cleans up a String::insert() formated string with given $options depending on the 'clean' key in
+ * Cleans up a StringCake13::insert() formated string with given $options depending on the 'clean' key in
  * $options. The default method used is text but html is also available. The goal of this function
  * is to replace all whitespace and uneeded markup around placeholders that did not get replaced
- * by String::insert().
+ * by StringCake13::insert().
  *
  * @param string $str
  * @param string $options
  * @return string
  * @access public
  * @static
- * @see String::insert()
+ * @see StringCake13::insert()
  */
 	function cleanInsert($str, $options) {
 		$clean = $options['clean'];
@@ -300,7 +300,7 @@ class StringCake13 {
 				$str = preg_replace($kleenex, $clean['replacement'], $str);
 				if ($clean['andText']) {
 					$options['clean'] = array('method' => 'text');
-					$str = String::cleanInsert($str, $options);
+					$str = StringCake13::cleanInsert($str, $options);
 				}
 				break;
 			case 'text':

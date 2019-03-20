@@ -22,7 +22,7 @@
  * Included libraries.
  *
  */
-if (!class_exists('Object')) {
+if (!class_exists('ObjectCake13')) {
 	require LIBS . 'object.php';
 }
 if (!class_exists('Folder')) {
@@ -213,7 +213,7 @@ class File extends ObjectCake13 {
 	}
 
 /**
- * Prepares a ascii string for writing.  Converts line endings to the 
+ * Prepares a ascii string for writing.  Converts line endings to the
  * correct terminator for the current platform.  If windows "\r\n" will be used
  * all other platforms will use "\n"
  *

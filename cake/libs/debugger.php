@@ -308,7 +308,7 @@ class Debugger extends ObjectCake13 {
 		if (Configure::read('log')) {
 			$tpl = $_this->_templates['log']['error'];
 			$options = array('before' => '{:', 'after' => '}');
-			CakeLog::write($level, String::insert($tpl, $data, $options));
+			CakeLog::write($level, StringCake13::insert($tpl, $data, $options));
 		}
 
 		if ($error == 'Fatal Error') {
@@ -395,7 +395,7 @@ class Debugger extends ObjectCake13 {
 				$trace['path'] = Debugger::trimPath($trace['file']);
 				$trace['reference'] = $reference;
 				unset($trace['object'], $trace['args']);
-				$back[] = String::insert($tpl, $trace, array('before' => '{:', 'after' => '}'));
+				$back[] = StringCake13::insert($tpl, $trace, array('before' => '{:', 'after' => '}'));
 			}
 		}
 
@@ -667,7 +667,7 @@ class Debugger extends ObjectCake13 {
 				if (isset($detect[$key]) && empty($insert[$detect[$key]])) {
 					continue;
 				}
-				$links[$key] = String::insert($val, $insert, $insertOpts);
+				$links[$key] = StringCake13::insert($val, $insert, $insertOpts);
 			}
 		}
 
@@ -678,12 +678,12 @@ class Debugger extends ObjectCake13 {
 			if (is_array($$key)) {
 				$$key = join("\n", $$key);
 			}
-			$info .= String::insert($tpl[$key], compact($key) + $insert, $insertOpts);
+			$info .= StringCake13::insert($tpl[$key], compact($key) + $insert, $insertOpts);
 		}
 		$links = join(' | ', $links);
 		unset($data['context']);
 
-		echo String::insert($tpl['error'], compact('links', 'info') + $data, $insertOpts);
+		echo StringCake13::insert($tpl['error'], compact('links', 'info') + $data, $insertOpts);
 	}
 
 /**

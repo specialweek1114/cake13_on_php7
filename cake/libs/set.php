@@ -612,7 +612,7 @@ class Set {
 			if (!class_exists('String')) {
 				App::import('Core', 'String');
 			}
-			$path = String::tokenize($path, '.', '{', '}');
+			$path = StringCake13::tokenize($path, '.', '{', '}');
 		}
 		$tmp = array();
 

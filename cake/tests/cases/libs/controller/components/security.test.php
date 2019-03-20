@@ -1071,7 +1071,7 @@ DIGEST;
 		$data = array(
 			'username' => 'Willy Smith',
 			'password' => 'password',
-			'nonce' => String::uuid(),
+			'nonce' => StringCake13::uuid(),
 			'nc' => 1,
 			'cnonce' => 1,
 			'realm' => $realm,
