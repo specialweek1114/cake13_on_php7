@@ -184,7 +184,7 @@ class Debugger extends ObjectCake13 {
 		static $instance = array();
 		if (!empty($class)) {
 			if (!$instance || strtolower($class) != strtolower(get_class($instance[0]))) {
-				$instance[0] = & new $class();
+				$instance[0] = new $class();
 				if (Configure::read() > 0) {
 					Configure::version(); // Make sure the core config is loaded
 					$instance[0]->helpPath = Configure::read('Cake.Debugger.HelpPath');
