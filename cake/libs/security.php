@@ -82,7 +82,7 @@ class Security extends ObjectCake13 {
 		if (!class_exists('String')) {
 			App::import('Core', 'String');
 		}
-		return Security::hash(String::uuid());
+		return Security::hash(StringCake13::uuid());
 	}
 
 /**
