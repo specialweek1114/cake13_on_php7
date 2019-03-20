@@ -28,12 +28,12 @@ if (!class_exists('Object')) {
 
 /**
  * Folder structure browser, lists folders and files.
- * Provides an Object interface for Common directory related tasks.
+ * Provides an ObjectCake13 interface for Common directory related tasks.
  *
  * @package       cake
  * @subpackage    cake.cake.libs
  */
-class Folder extends Object {
+class Folder extends ObjectCake13 {
 
 /**
  * Path to Folder.

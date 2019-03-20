@@ -65,7 +65,7 @@ class ClassRegistry {
 	function &getInstance() {
 		static $instance = array();
 		if (!$instance) {
-			$instance[0] =& new ClassRegistry();
+			$instance[0] = new ClassRegistry();
 		}
 		return $instance[0];
 	}
@@ -139,7 +139,7 @@ class ClassRegistry {
 				}
 
 				if (class_exists($class) || App::import($type, $pluginPath . $class)) {
-					${$class} =& new $class($settings);
+					${$class} = new $class($settings);
 				} elseif ($type === 'Model') {
 					if ($plugin && class_exists($plugin . 'AppModel')) {
 						$appModel = $plugin . 'AppModel';
@@ -147,7 +147,7 @@ class ClassRegistry {
 						$appModel = 'AppModel';
 					}
 					$settings['name'] = $class;
-					${$class} =& new $appModel($settings);
+					${$class} = new $appModel($settings);
 				}
 
 				if (!isset(${$class})) {
@@ -242,7 +242,7 @@ class ClassRegistry {
  * Return object which corresponds to given key.
  *
  * @param string $key Key of object to look for
- * @return mixed Object stored in registry or boolean false if the object does not exist.
+ * @return mixed ObjectCake13 stored in registry or boolean false if the object does not exist.
  * @access public
  * @static
  */

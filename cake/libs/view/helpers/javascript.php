@@ -414,7 +414,7 @@ class JavascriptHelper extends AppHelper {
 /**
  * Attach an event to an element. Used with the Prototype library.
  *
- * @param string $object Object to be observed
+ * @param string $object ObjectCake13 to be observed
  * @param string $event event to observe
  * @param string $observer function to call
  * @param array $options Set options: useCapture, allowCache, safe
@@ -584,7 +584,7 @@ class JavascriptHelper extends AppHelper {
 	}
 
 /**
- * Generates a JavaScript object in JavaScript Object Notation (JSON)
+ * Generates a JavaScript object in JavaScript ObjectCake13 Notation (JSON)
  * from an array
  *
  * ### Options

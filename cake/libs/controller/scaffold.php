@@ -31,7 +31,7 @@
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  */
-class Scaffold extends Object {
+class Scaffold extends ObjectCake13 {
 
 /**
  * Controller object
