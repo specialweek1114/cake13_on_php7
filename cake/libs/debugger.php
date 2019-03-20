@@ -31,7 +31,7 @@ if (!class_exists('CakeLog')) {
 	require_once LIBS . 'cake_log.php';
 }
 if (!class_exists('String')) {
-	require_once LIBS . 'string.php';
+	require_once LIBS . 'cake_string.php';
 }
 
 /**
