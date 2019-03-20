@@ -22,7 +22,7 @@
  * Included libraries.
  *
  */
-if (!class_exists('Object')) {
+if (!class_exists('ObjectCake13')) {
 	require LIBS . 'object.php';
 }
 if (!class_exists('Folder')) {
@@ -35,7 +35,7 @@ if (!class_exists('Folder')) {
  * @package       cake
  * @subpackage    cake.cake.libs
  */
-class File extends Object {
+class File extends ObjectCake13 {
 
 /**
  * Folder object of the File
@@ -96,7 +96,7 @@ class File extends Object {
  */
 	function __construct($path, $create = false, $mode = 0755) {
 		parent::__construct();
-		$this->Folder =& new Folder(dirname($path), $create, $mode);
+		$this->Folder = new Folder(dirname($path), $create, $mode);
 		if (!is_dir($path)) {
 			$this->name = basename($path);
 		}
@@ -213,7 +213,7 @@ class File extends Object {
 	}
 
 /**
- * Prepares a ascii string for writing.  Converts line endings to the 
+ * Prepares a ascii string for writing.  Converts line endings to the
  * correct terminator for the current platform.  If windows "\r\n" will be used
  * all other platforms will use "\n"
  *

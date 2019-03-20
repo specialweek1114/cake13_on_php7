@@ -24,7 +24,7 @@
  * @subpackage    cake.cake.libs.controller
  * @link          http://book.cakephp.org/1.3/en/The-Manual/Developing-with-CakePHP/Components.html
  */
-class Component extends Object {
+class Component extends ObjectCake13 {
 
 /**
  * Contains various controller variable information (plugin, name, base).
@@ -191,7 +191,7 @@ class Component extends Object {
 /**
  * Loads components used by this component.
  *
- * @param object $object Object with a Components array
+ * @param object $object ObjectCake13 with a Components array
  * @param object $parent the parent of the current object
  * @return void
  * @access protected
@@ -244,12 +244,12 @@ class Component extends Object {
 				}
 			} else {
 				if ($componentCn === 'SessionComponent') {
-					$object->{$component} =& new $componentCn($base);
+					$object->{$component} = new $componentCn($base);
 				} else {
 					if (PHP5) {
 						$object->{$component} = new $componentCn();
 					} else {
-						$object->{$component} =& new $componentCn();
+						$object->{$component} = new $componentCn();
 					}
 				}
 				$object->{$component}->enabled = true;

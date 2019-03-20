@@ -171,7 +171,7 @@ class RequestActionPersistentController extends Controller {
  * @package       cake
  * @subpackage    cake.tests.cases.libs
  */
-class TestObject extends Object {
+class TestObject extends ObjectCake13 {
 
 /**
  * firstName property
@@ -320,7 +320,7 @@ class ObjectTestModel extends CakeTestModel {
 }
 
 /**
- * Object Test class
+ * ObjectCake13 Test class
  *
  * @package       cake
  * @subpackage    cake.tests.cases.libs
@@ -437,7 +437,7 @@ class ObjectTest extends CakeTestCase {
 
 		@unlink(CACHE . 'persistent' . DS . 'testmodel.php');
 
-		$model =& new ObjectTestModel();
+		$model = new ObjectTestModel();
 		$expected = ClassRegistry::keys();
 
 		ClassRegistry::flush();

@@ -612,7 +612,7 @@ class Set {
 			if (!class_exists('String')) {
 				App::import('Core', 'String');
 			}
-			$path = String::tokenize($path, '.', '{', '}');
+			$path = StringCake13::tokenize($path, '.', '{', '}');
 		}
 		$tmp = array();
 
@@ -984,7 +984,7 @@ class Set {
 
 /**
  * Converts an object into an array.
- * @param object $object Object to reverse
+ * @param object $object ObjectCake13 to reverse
  * @return array Array representation of given object
  * @public
  * @static
