@@ -5,7 +5,8 @@ class SampleController extends AppController {
   public $name = "Sample";//コントローラーの名前　省略可能
   public $uses = null;//このコントローラで使用するモデル指定
   public $autoRender = true;//ビューの自動読み込みON/OFF
-  public $autoLayout = false;//レイアウトの無効化 記述なしの場合は true
+  public $layout = "sample";
+  public $autoLayout = true;//レイアウトの無効化 記述なしの場合は true
 
   // アクションメソッド　このコントローラで利用される。さまざまな処理を示すもの
   // http://ドメイン名/cakeroot/コントローラ名/アクション名　というURLが割り当てられる
@@ -24,7 +25,20 @@ class SampleController extends AppController {
     $this->set("content", "これは、ビューを使った表示です。");
   }
 
-  function form(){}
+  function form(){
+    $this->set("page_title","Sample Page");
+    $this->set("content_header","Sample Page.");
+    $this->set("content_footer","copyright SYODA-Tuyano. 2010.");
+    if ($this->data){
+        $res = "【送信情報】<br />";
+        $res .= "名前：　" . $this->data["name"] . "<br />";
+        $res .= "メール：" . $this->data["mail"] . "<br />";
+        $res .= "電話:　" . $this->data["tel"] . "<br />";
+    } else {
+        $res = "記入してください。";
+    }
+    $this->set("result",$res);
+  }
 
   function result(){
     //サニタイズ処理のロード　htmlspecialchars的なやつ
@@ -37,5 +51,8 @@ class SampleController extends AppController {
     // テキストのサニタイズ処理の実行
     $result = Sanitize::stripAll($input);
     $this->set("result", $result);
+    $this->set("page_title","Sample Page");
+    $this->set("content_header","Sample Page.");
+    $this->set("content_footer","copyright SYODA-Tuyano. 2010.");
   }
 }
