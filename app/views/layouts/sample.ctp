@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $page_title; ?></title>
         <?php echo $html->css("cake.sample"); ?>
+        <?php echo $html->css("cake.generic"); ?>
     </head>
     <body>
       <div class="row">

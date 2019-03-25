@@ -29,15 +29,45 @@ class SampleController extends AppController {
     $this->set("page_title","Sample Page");
     $this->set("content_header","Sample Page.");
     $this->set("content_footer","copyright SYODA-Tuyano. 2010.");
+    $this->set("form_items",
+      [
+        "name" => ["text", "名前"]
+        ,"mail" => ["text", "メール"]
+        ,"tel" => ["text", "電話"]
+        ,"password" => ["password", "パスワード"]
+        ,"remarks" => ["textarea", "備考"]
+        ,"time" => ["checkbox", "時間帯"]
+        ,"sei" => ["radio","性別"]
+        ,"feeling" => ["select","気分"]
+      ]
+    );
+    $this->set("ArrValues", [
+      "time" => [
+        "morning" => "朝"
+        ,"noon" => "昼"
+        ,"evening" => "夕方"
+        ,"night" => "夜"
+      ]
+      ,"sei"=>["男","女","その他"]
+      ,"feeling"=>[
+        "(未選択)"
+        ,"最高"
+        ,"普通"
+        ,"悪い"
+      ]
+    ]);
     if ($this->data){
         $res = "【送信情報】<br />";
         $res .= "名前：　" . $this->data["name"] . "<br />";
         $res .= "メール：" . $this->data["mail"] . "<br />";
         $res .= "電話:　" . $this->data["tel"] . "<br />";
+        $res_arr = $this->data;
     } else {
         $res = "記入してください。";
+        $res_arr = [];
     }
     $this->set("result",$res);
+    $this->set("res_arr", $res_arr);
   }
 
   function result(){
