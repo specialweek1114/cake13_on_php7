@@ -191,7 +191,7 @@ class DboSqlite extends DboSource {
  *
  * @return array Array of tablenames in the database
  */
-	function listSources() {
+	function listSources($data = NULL) {
 		$cache = parent::listSources();
 
 		if ($cache != null) {
@@ -337,7 +337,7 @@ class DboSqlite extends DboSource {
  *
  * @return integer Number of affected rows
  */
-	function lastAffected() {
+	function lastAffected($source = NULL) {
 		if (!empty($this->_queryStats)) {
 			foreach (array('rows inserted', 'rows updated', 'rows deleted') as $key) {
 				if (array_key_exists($key, $this->_queryStats)) {
@@ -354,7 +354,7 @@ class DboSqlite extends DboSource {
  *
  * @return integer Number of rows in resultset
  */
-	function lastNumRows() {
+	function lastNumRows($source = NULL) {
 		if ($this->hasResult()) {
 			sqlite_num_rows($this->_result);
 		}

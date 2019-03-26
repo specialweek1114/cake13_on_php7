@@ -1900,7 +1900,7 @@ class DboSource extends DataSource {
  * @return string
  * @access public
  */
-	function resolveKey($model, $key, $assoc = null) {
+	function resolveKey(&$model, $key, $assoc = null) {
 		if (empty($assoc)) {
 			$assoc = $model->alias;
 		}

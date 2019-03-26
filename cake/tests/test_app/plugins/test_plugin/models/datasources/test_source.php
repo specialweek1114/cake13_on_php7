@@ -5,7 +5,7 @@ class TestSource extends DataSource {
 		return compact('model');
 	}
 
-	function listSources() {
+	function listSources($data = NULL) {
 		return array('test_source');
 	}
 

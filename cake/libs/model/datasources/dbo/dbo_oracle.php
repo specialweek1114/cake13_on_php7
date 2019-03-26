@@ -334,7 +334,7 @@ class DboOracle extends DboSource {
  * @return integer Number of rows in resultset
  * @access public
  */
-	function lastNumRows() {
+	function lastNumRows($source = NULL) {
 		return $this->_numRows;
 	}
 
@@ -471,7 +471,7 @@ class DboOracle extends DboSource {
  * @return array tablenames in the database
  * @access public
  */
-	function listSources() {
+	function listSources($data = NULL) {
 		$cache = parent::listSources();
 		if ($cache != null) {
 			return $cache;
@@ -935,7 +935,7 @@ class DboOracle extends DboSource {
  * @return int Number of affected rows
  * @access public
  */
-	function lastAffected() {
+	function lastAffected($source = NULL) {
 		return $this->_statementId ? ocirowcount($this->_statementId): false;
 	}
 
