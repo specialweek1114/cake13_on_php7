@@ -3,11 +3,10 @@
 class SampleController extends AppController {
 
   public $name = "Sample";//コントローラーの名前　省略可能
-  public $uses = "mydatas";//このコントローラで使用するモデル指定
+  public $uses = null;//このコントローラで使用するモデル指定
   public $autoRender = true;//ビューの自動読み込みON/OFF
-  // public $layout = "sample";
+  public $layout = "sample";
   public $autoLayout = true;//レイアウトの無効化 記述なしの場合は true
-  public $scaffold;
 
   // アクションメソッド　このコントローラで利用される。さまざまな処理を示すもの
   // http://ドメイン名/cakeroot/コントローラ名/アクション名　というURLが割り当てられる
@@ -22,8 +21,10 @@ class SampleController extends AppController {
     // echo "</body></html>";
 
     // $this->set("変数名","値")でindex.ctpで使用できる変数定義
+    $this->set("content_header","Sample Page.");
     $this->set("title_text", "Sample Page");
     $this->set("content", "これは、ビューを使った表示です。");
+    $this->set("content_footer","copyright SYODA-Tuyano. 2010.");
   }
 
   function form(){
