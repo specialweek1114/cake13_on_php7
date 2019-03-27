@@ -1,7 +1,8 @@
 <h1>データの一覧リスト</h1>
-<?php echo $form->create("Mydata",array("type"=>"post","action"=>"./index")); ?>
-<?php echo $form->input("FIND"); ?>
-<?php echo $form->end("送信"); ?>
+<?php echo $form->create("Mydata",array("type"=>"post","action"=>"./del")); ?>
+<?php echo $form->input("DELETE"); ?>
+<?php echo $form->end("削除"); ?>
+
 <table>
 <tr><th>名前</th><th>メール</th><th>電話</th></tr>
 <?php foreach($datas as $data){ ?>
