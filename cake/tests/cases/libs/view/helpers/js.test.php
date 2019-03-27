@@ -515,7 +515,7 @@ CODE;
  * @return void
  */
 	function testValuePassThrough() {
-		$result = $this->Js->value('string "quote"', true);
+		$result = $this->Js->valueJs('string "quote"', true);
 		$expected = '"string \"quote\""';
 		$this->assertEqual($result, $expected);
 	}
