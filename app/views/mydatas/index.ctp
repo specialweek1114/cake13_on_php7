@@ -3,9 +3,12 @@
 <?php echo $form->input("FIND"); ?>
 <?php echo $form->end("送信"); ?>
 <table>
-<tr><th>名前</th><th>メール</th><th>電話</th></tr>
+<tr><th>編集</th><th>名前</th><th>メール</th><th>電話</th></tr>
 <?php foreach($datas as $data){ ?>
 <tr>
+<td>
+  <a href="./edit?id=<?=$data['Mydata']['id']?>">編集</a>
+</td>
 <td><?php echo $data['Mydata']['name']; ?></td>
 <td><?php echo $data['Mydata']['mail']; ?></td>
 <td><?php echo $data['Mydata']['tel']; ?></td>

@@ -4,5 +4,9 @@
 class Mydata extends AppModel {
 
     public $name = "Mydata";//宣言しなくてもいい
+    public $validate = [
+      "name" => "notEmpty"
+      ,"mail" => "email"
+    ];
 
 }

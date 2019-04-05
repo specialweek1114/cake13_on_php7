@@ -2631,13 +2631,13 @@ class Model extends Overloadable {
 					if (in_array(strtolower($rule), $methods)) {
 						$ruleParams[] = $validator;
 						$ruleParams[0] = array($fieldName => $ruleParams[0]);
-						$valid = $this->dispatchMethodForModel($rule, $ruleParams);
+						$valid = $this->dispatchMethod($rule, $ruleParams);
 					} elseif (in_array($rule, $behaviorMethods) || in_array(strtolower($rule), $behaviorMethods)) {
 						$ruleParams[] = $validator;
 						$ruleParams[0] = array($fieldName => $ruleParams[0]);
 						$valid = $this->Behaviors->dispatchMethodForModel($this, $rule, $ruleParams);
 					} elseif (method_exists($Validation, $rule)) {
-						$valid = $Validation->dispatchMethodForModel($rule, $ruleParams);
+						$valid = $Validation->dispatchMethod($rule, $ruleParams);
 					} elseif (!is_array($validator['rule'])) {
 						$valid = preg_match($rule, $data[$fieldName]);
 					} elseif (Configure::read('debug') > 0) {

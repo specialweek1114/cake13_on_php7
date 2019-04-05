@@ -6,7 +6,7 @@ class MydatasController extends AppController {
     public $name = "mydatas";  // なくてもいい
     public $uses = "Mydata";   // なくてもいい
     public $autoRender = true; // なくてもいい
-    public $layout = "sample";
+    public $layout = "mydata";
     public $autoLayout = true; // なくてもいい
 
     function index(){
@@ -45,7 +45,9 @@ class MydatasController extends AppController {
 
         if (!empty($this->data)){
             $this->Mydata->save($this->data);
-            $this->redirect(".");
+            if ($this->Mydata->validates()){
+                $this->redirect(".");
+            }
         }
     }
 
@@ -60,6 +62,25 @@ class MydatasController extends AppController {
         }
         $datas = $this->Mydata->find("all");
         $this->set("datas",$datas);
+    }
+
+    function edit()
+    {
+        $this->set("page_title","Sample Add Page");
+        $this->set("content_header","Sample Add Page.");
+        $this->set("content_footer","copyright SYODA-Tuyano. 2010.");
+
+        if (!empty($this->data)){
+            $this->Mydata->save($this->data);
+            if ($this->Mydata->validates()){
+                $this->redirect(".");
+            }
+        } else if( isset($this->params["url"]["id"]) ) {
+            $id = $this->params["url"]["id"];
+            $this->data = $this->Mydata->findById($id);
+        } else {
+          $this->redirect(".");
+        }
     }
 
 }
