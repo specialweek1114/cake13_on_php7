@@ -577,7 +577,7 @@ class DataSource extends ObjectCake13 {
  * @return string Key name for model.
  * @access public
  */
-	function resolveKey(&$model, $key) {
+	function resolveKey(&$model, $key, $assoc = null) {
 		return $model->alias . $key;
 	}
 
