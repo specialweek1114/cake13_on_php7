@@ -152,13 +152,13 @@ class ModelBehavior extends ObjectCake13 {
 	function onError(&$model, $error) { }
 
 /**
- * Overrides Object::dispatchMethod to account for PHP4's broken reference support
+ * Overrides Object::dispatchMethodForModel to account for PHP4's broken reference support
  *
- * @see Object::dispatchMethod
+ * @see Object::dispatchMethodForModel
  * @access public
  * @return mixed
  */
-	function dispatchMethod(&$model, $method, $params = array()) {
+	function dispatchMethodForModel(&$model, $method, $params = array()) {
 		if (empty($params)) {
 			return $this->{$method}($model);
 		}
@@ -434,7 +434,7 @@ class BehaviorCollection extends ObjectCake13 {
  * @return array All methods for all behaviors attached to this object
  * @access public
  */
-	function dispatchMethod(&$model, $method, $params = array(), $strict = false) {
+	function dispatchMethodForModel(&$model, $method, $params = array(), $strict = false) {
 		$methods = array_keys($this->__methods);
 		foreach ($methods as $key => $value) {
 			$methods[$key] = strtolower($value);
@@ -445,7 +445,7 @@ class BehaviorCollection extends ObjectCake13 {
 		$call = null;
 
 		if ($strict && !$found) {
-			trigger_error(sprintf(__("BehaviorCollection::dispatchMethod() - Method %s not found in any attached behavior", true), $method), E_USER_WARNING);
+			trigger_error(sprintf(__("BehaviorCollection::dispatchMethodForModel() - Method %s not found in any attached behavior", true), $method), E_USER_WARNING);
 			return null;
 		} elseif ($found) {
 			$methods = array_combine($methods, array_values($this->__methods));
@@ -464,7 +464,7 @@ class BehaviorCollection extends ObjectCake13 {
 		}
 
 		if (!empty($call)) {
-			return $this->{$call[1]}->dispatchMethod($model, $call[0], $params);
+			return $this->{$call[1]}->dispatchMethodForModel($model, $call[0], $params);
 		}
 		return array('unhandled');
 	}
@@ -491,7 +491,7 @@ class BehaviorCollection extends ObjectCake13 {
 			if (in_array($name, $this->_disabled)) {
 				continue;
 			}
-			$result = $this->{$name}->dispatchMethod($model, $callback, $params);
+			$result = $this->{$name}->dispatchMethodForModel($model, $callback, $params);
 
 			if ($options['break'] && ($result === $options['breakOn'] || (is_array($options['breakOn']) && in_array($result, $options['breakOn'], true)))) {
 				return $result;
