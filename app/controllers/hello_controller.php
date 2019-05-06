@@ -6,16 +6,19 @@ class HelloController extends AppController
 {
   public $name = "Hello";
   public $uses = null;
-  public $autoLayout = false;
-  public $autoRender = true;
+  // public $autoLayout;
+  // public $autoRender;
+  public $layout = "hello";
 
   function index()
   {
-    // echo "Hello world!";
+    // $this->autoLayout = true;
+    // $this->autoRender = true;
   }
 
   function other()
   {
-    echo "これは、index以外の表示です。";
+    // $this->autoLayout = false;
+    // $this->autoRender = true;
   }
 }

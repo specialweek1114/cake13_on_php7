@@ -7,7 +7,6 @@
   </head>
   <body>
     <h1>サンプル見出し</h1>
-    <p>こんにちは！　これは、CakePHPのサンプルです。</p>
-    <?php echo date("Y/m/d", time()) ?>
+    <p>これは、index以外の表示です。</p>
   </body>
 </html>
